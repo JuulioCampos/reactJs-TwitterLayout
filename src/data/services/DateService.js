@@ -1,4 +1,3 @@
-
 const RelativeFormatter = new Intl.RelativeTimeFormat('pt', {
     style: 'short'
 })

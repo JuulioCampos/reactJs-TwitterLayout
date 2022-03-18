@@ -1,5 +1,4 @@
 import styles from './tweet.module.css';
-
 export default function Tweet({tweet}) {
     const {user} = tweet;
     return (

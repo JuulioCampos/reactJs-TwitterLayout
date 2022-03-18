@@ -26,24 +26,29 @@ export default function Index() {
             <h1 className={styles['page-title']}>TwitClone</h1>
             <div className={styles['tweet-container']}>
                 <img className={styles['avatar']} src={user.pictue} alt={user.name} />
-                <TextInput  />
+                <TextInput 
+                    placeholder = {'O que você está acontecendo?'}
+                    rows = {3}
+                    maxLength = {maxTextLength}
+                    onChange = {onTextChange}
+                />
             </div>
             <div className={styles['button-container']}>
                 <div>
-                    0 / 150
+                    {text.length} / {maxTextLength}
                 </div>
-                <button className={styles['post-button']}>Tweetar</button>
+                <button 
+                onClick = {sendTweet} 
+                disabled = {text.length === 0} 
+                className={styles['post-button']}>Tweetar</button>
             </div>
             <ul className={styles['tweet-list']}>
-                <li className={styles['tweet-list-item']}>
-                    <Tweet tweet={tweet}/>
+                {sortedTweetList.map((tweet)=> (
+                <li key = {tweet.id * 3.14159265359} className={styles['tweet-list-item']}>
+                    <Tweet tweet={tweet.data}/>
                 </li>
-                <li className={styles['tweet-list-item']}>
-                    <Tweet tweet={tweet}/>
-                </li>
-                <li className={styles['tweet-list-item']}>
-                    <Tweet tweet={tweet}/>
-                </li>
+                ))}
+
             </ul>
             
             

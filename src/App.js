@@ -1,9 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from  './App.module.css';
+import Index from './ui/pages';
 
 function App() {
   return (
-    <div></div>
+    <div className={styles['app-container']}>
+      <Index />
+    </div>
   );
 }
 
